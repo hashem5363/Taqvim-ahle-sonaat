@@ -1,0 +1,186 @@
+name: Build APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.7"
+
+      - name: Create Android project
+        run: |
+          set -e
+          HTML=$(ls *.html | head -n 1)
+          echo "Using $HTML"
+          P=android
+          mkdir -p $P/app/src/main/java/ir/hashem/taqvim $P/app/src/main/assets $P/app/src/main/res/mipmap-xxxhdpi
+          cp "$HTML" $P/app/src/main/assets/index.html
+          echo "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" | base64 -d > $P/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+
+          cat > $P/settings.gradle <<'EOF'
+          pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }
+          dependencyResolutionManagement { repositories { google(); mavenCentral() } }
+          rootProject.name = "TaqvimAhlSunnat"
+          include ':app'
+          EOF
+
+          cat > $P/build.gradle <<'EOF'
+          plugins { id 'com.android.application' version '8.5.2' apply false }
+          EOF
+
+          cat > $P/gradle.properties <<'EOF'
+          org.gradle.jvmargs=-Xmx2g
+          android.useAndroidX=true
+          EOF
+
+          cat > $P/app/build.gradle <<'EOF'
+          plugins { id 'com.android.application' }
+          android {
+              namespace 'ir.hashem.taqvim'
+              compileSdk 34
+              defaultConfig {
+                  applicationId "ir.hashem.taqvim"
+                  minSdk 21
+                  targetSdk 34
+                  versionCode 1
+                  versionName "1.0"
+              }
+              buildTypes { release { minifyEnabled false } }
+              compileOptions {
+                  sourceCompatibility JavaVersion.VERSION_17
+                  targetCompatibility JavaVersion.VERSION_17
+              }
+          }
+          EOF
+
+          cat > $P/app/src/main/AndroidManifest.xml <<'EOF'
+          <?xml version="1.0" encoding="utf-8"?>
+          <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+              <uses-permission android:name="android.permission.INTERNET" />
+              <application
+                  android:label="تقویم اهل سنت"
+                  android:icon="@mipmap/ic_launcher"
+                  android:theme="@android:style/Theme.Material.Light.NoActionBar"
+                  android:supportsRtl="true">
+                  <activity
+                      android:name=".MainActivity"
+                      android:exported="true"
+                      android:configChanges="orientation|screenSize|keyboardHidden">
+                      <intent-filter>
+                          <action android:name="android.intent.action.MAIN" />
+                          <category android:name="android.intent.category.LAUNCHER" />
+                      </intent-filter>
+                  </activity>
+              </application>
+          </manifest>
+          EOF
+
+          cat > $P/app/src/main/java/ir/hashem/taqvim/MainActivity.java <<'EOF'
+          package ir.hashem.taqvim;
+
+          import android.app.Activity;
+          import android.content.Intent;
+          import android.graphics.Color;
+          import android.net.Uri;
+          import android.os.Bundle;
+          import android.view.WindowManager;
+          import android.webkit.ValueCallback;
+          import android.webkit.WebChromeClient;
+          import android.webkit.WebResourceRequest;
+          import android.webkit.WebSettings;
+          import android.webkit.WebView;
+          import android.webkit.WebViewClient;
+
+          public class MainActivity extends Activity {
+              private WebView web;
+              private ValueCallback<Uri[]> fileCb;
+              private static final int FILE_REQ = 1;
+
+              @Override
+              protected void onCreate(Bundle state) {
+                  super.onCreate(state);
+                  getWindow().setStatusBarColor(Color.parseColor("#0b5b47"));
+                  getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                  web = new WebView(this);
+                  setContentView(web);
+                  WebSettings s = web.getSettings();
+                  s.setJavaScriptEnabled(true);
+                  s.setDomStorageEnabled(true);
+                  s.setDatabaseEnabled(true);
+                  s.setAllowFileAccess(true);
+                  s.setMediaPlaybackRequiresUserGesture(false);
+                  web.setWebViewClient(new WebViewClient() {
+                      @Override
+                      public boolean shouldOverrideUrlLoading(WebView v, WebResourceRequest r) {
+                          Uri u = r.getUrl();
+                          if ("file".equals(u.getScheme())) return false;
+                          try { startActivity(new Intent(Intent.ACTION_VIEW, u)); } catch (Exception e) { }
+                          return true;
+                      }
+                  });
+                  web.setWebChromeClient(new WebChromeClient() {
+                      @Override
+                      public boolean onShowFileChooser(WebView v, ValueCallback<Uri[]> cb, FileChooserParams p) {
+                          if (fileCb != null) fileCb.onReceiveValue(null);
+                          fileCb = cb;
+                          try { startActivityForResult(p.createIntent(), FILE_REQ); }
+                          catch (Exception e) { fileCb = null; return false; }
+                          return true;
+                      }
+                  });
+                  if (state != null) web.restoreState(state);
+                  else web.loadUrl("file:///android_asset/index.html");
+              }
+
+              @Override
+              protected void onActivityResult(int req, int res, Intent data) {
+                  if (req == FILE_REQ && fileCb != null) {
+                      fileCb.onReceiveValue(WebChromeClient.FileChooserParams.parseResult(res, data));
+                      fileCb = null;
+                  } else {
+                      super.onActivityResult(req, res, data);
+                  }
+              }
+
+              @Override
+              protected void onSaveInstanceState(Bundle out) {
+                  super.onSaveInstanceState(out);
+                  web.saveState(out);
+              }
+
+              @Override
+              public void onBackPressed() {
+                  if (web.canGoBack()) web.goBack(); else super.onBackPressed();
+              }
+          }
+          EOF
+
+      - name: Build APK
+        working-directory: android
+        run: gradle assembleDebug --no-daemon
+
+      - name: Rename APK
+        run: cp android/app/build/outputs/apk/debug/app-debug.apk TaqvimAhlSunnat.apk
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.${{ github.run_number }}
+          name: "تقویم اهل سنت - نسخه ${{ github.run_number }}"
+          files: TaqvimAhlSunnat.apk
