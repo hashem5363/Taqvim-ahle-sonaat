@@ -171,11 +171,26 @@ label.f select,label.f input{border:1px solid var(--line);background:var(--surfa
 .contact{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;padding:10px 12px;border-radius:12px;background:var(--surface2);direction:ltr}
 .contact span{font-weight:600;overflow-wrap:anywhere;user-select:all}
 
+.adrow{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:10px 12px;border-radius:14px;background:var(--surface2)}
+.adrow .acts{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.adrow small{grid-column:1/-1;color:var(--muted);font-size:12px;overflow-wrap:anywhere}
+.filebtn{position:relative;overflow:hidden}
+.filebtn input{position:absolute;inset:0;opacity:0;cursor:pointer}
+details.dl summary{cursor:pointer;font-weight:600;color:var(--turq);padding:6px 0}
+.dlist{display:flex;flex-direction:column;gap:4px;max-height:420px;overflow:auto;margin-top:6px}
+.dlist a,.rlist button{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:8px 12px;border-radius:10px;background:var(--surface2);color:var(--fg);text-decoration:none;font-size:14px;direction:ltr;text-align:left}
+.dlist a b{color:var(--green);font-size:12px;flex:none}
+.rlist{display:flex;flex-direction:column;gap:6px;max-height:520px;overflow:auto}
+.rlist button{border:1px solid transparent;width:100%}
+.rlist svg{width:20px;height:20px;flex:none}
+.rlist button.on{border-color:var(--turq);background:var(--turq);color:#fff}
+.nowbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:14px;background:linear-gradient(90deg,var(--green),var(--turq));color:#fff;margin-bottom:10px}
+.contact a{color:inherit;text-decoration:none}
 /* nav */
 nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);
   padding-bottom:env(safe-area-inset-bottom,0px);padding-left:max(6px,env(safe-area-inset-left,0px));padding-right:max(6px,env(safe-area-inset-right,0px))}
-nav.tabs .in{max-width:640px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr)}
-nav.tabs button{background:none;border:0;padding:8px 0 7px;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--muted)}
+nav.tabs .in{max-width:640px;margin:0 auto;display:grid;grid-template-columns:repeat(7,1fr)}
+nav.tabs button{background:none;border:0;padding:8px 0 7px;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10.5px;white-space:nowrap;overflow:hidden;color:var(--muted)}
 nav.tabs button svg{width:23px;height:23px}
 nav.tabs button[aria-current="page"]{color:var(--green);font-weight:700}
 nav.tabs button[aria-current="page"] svg{filter:drop-shadow(0 2px 4px rgba(15,122,85,.35))}
@@ -215,6 +230,9 @@ nav.tabs button[aria-current="page"] svg{filter:drop-shadow(0 2px 4px rgba(15,12
 "use strict";
 /* ================= DATA ================= */
 const PHOTO="data:image/jpeg;base64,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";
+const ADHAN_URLS={0:"https://media.assabile.com/assabile/adhan_3435370/7487fa449eeb.mp3",2:"https://media.assabile.com/assabile/adhan_3435370/b30ca9a3e115.mp3",3:"https://media.assabile.com/assabile/adhan_3435370/768559b47c2e.mp3",4:"https://media.assabile.com/assabile/adhan_3435370/f30b7631d625.mp3",5:"https://media.assabile.com/assabile/adhan_3435370/0e56abfb1eb3.mp3"};
+const ADHAN_LIST=[[54,"Muhammad Ramadan Saad",1],[119,"Ali Ibn Ahmad Mala",1],[120,"Ali Ibn Ahmad Mala",1],[121,"Ali Ibn Ahmad Mala",1],[122,"Ali Ibn Ahmad Mala",1],[123,"Ali Ibn Ahmad Mala",1],[124,"Ali Ibn Ahmad Mala",1],[125,"Ali Ibn Ahmad Mala",1],[126,"Muhammad Khaleel Raml",1],[127,"Nayf Fedah",1],[128,"Faruq Abdul Rahman Hadrawe",1],[129,"Assem Bukhrare",1],[150,"NurDin Hamza Al Maghriby",1],[151,"Najee Qazaz",1],[230,"",1],[231,"",1],[232,"",1],[256,"",1],[257,"",1],[3,"Rabeh Ibn Darah Al Jazairi",0],[4,"Ahmed El Kourdi",0],[5,"Adham Al Sharqawe",0],[6,"Hamza Al Majale",0],[7,"Muhammad Al Damradash",0],[8,"Ismail Al Sheikh",0],[9,"Muhammad Abu Al Maqarem",0],[10,"Al Duqale Muhammad Al Alam",0],[11,"Aby Yasser Al Jazaire",0],[12,"Mohammed Salahuddin Kabbara",0],[13,"Mohammed Salahuddin Kabbara",0],[14,"Abdel Moneim Abdel Mobdi",0],[15,"Abdulah Al Maknawe",0],[16,"Akhdam Bnu Al Madane",0],[17,"Nasser Al Obaid",0],[18,"Nasser Al Obaid",0],[19,"Nasser Al Obaid",0],[20,"Tareq Fathe Ahmad",0],[21,"Hecham Khalel",0],[22,"Hassan Salah Baalul",0],[23,"Ahmed Al-Haddad",0],[24,"Mahmud Mustafa Al Najar",0],[25,"Samer Al Sagher",0],[26,"BalBaSher Abdel Qadir",0],[27,"Muhammed Ibrahem Ismael Abd Allah",0],[28,"Bnu Sawana",0],[29,"Bnu Sawana",0],[30,"Abdul Rahman Kassab",0],[31,"Abdul Rahman Kassab",0],[32,"Fares Abdul Ghane",0],[33,"Hassan Mahmud Bare",0],[34,"Ezzedine Amarna",0],[35,"Ahmad Al Aane",0],[36,"Badee Jadu",0],[37,"Badee Jadu",0],[38,"Badee Jadu",0],[39,"Al Ameen Muhammad Qanyouh",0],[40,"Zayd Al Aatya",0],[41,"Jamal Abu Al Hamed Al Jaafare",0],[42,"Islam Yassen",0],[43,"Issa Al Hajlawe",0],[44,"Abdul Rahman Majde",0],[45,"Hamad Al Daghriri",0],[46,"Ihssan Hamed Al Dulayme",0],[47,"Muhammad Abdal Baaeth",0],[48,"Adal Malek Abdulah Al Massre",0],[49,"Muhammad Ben Mussa",0],[50,"Muhammad Abd Al Hakem",0],[51,"Mansur Al Zahrane",0],[52,"Wadi Hamadi Al-Yamani",0],[53,"Taleb Al Qanube",0],[55,"Ahmad Aamer Muhammad",0],[56,"Fayz Adb Al Salam",0],[57,"Muhammad Fathe Hantur",0],[58,"Omru Sobhe",0],[59,"Al Sayed Muslim",0],[60,"Hussam Al Deen Obade",0],[61,"Muhammad Ashraf Aawad",0],[62,"Abdulah Al Sabaawe",0],[63,"Muhammad Al Kurayne Al Maluke",0],[64,"Muhammad Al Kurayne Al Maluke",0],[65,"Fawaz Farhan Al Dumane",0],[66,"Salem Hamde",0],[67,"Omran Mansur",0],[68,"Anuar Duman",0],[69,"Abdul Rahman Al Arake",0],[70,"Abdul Rahman Al Arake",0],[71,"Abdul Rahman Al Arake",0],[72,"Muhammad Hessen Al Shahawe",0],[73,"Abdulah Al Dahbe",0],[74,"Ibraheem Jabr Abu Raheq",0],[75,"Ibraheem Jabr Abu Raheq",0],[76,"Tamer Islam",0],[77,"Yasser Abdu Allah Al Hawre",0],[78,"Waled Mahsas",0],[79,"Waled Mahsas",0],[80,"Ahmad Fakhru",0],[81,"Ahmd At-Trablsy",0],[82,"Ahmd At-Trablsy",0],[83,"Ahmd At-Trablsy",0],[84,"Ahmd At-Trablsy",0],[85,"Ahmd At-Trablsy",0],[86,"Ahmd At-Trablsy",0],[87,"Ahmad Al Batal",0],[88,"Riad Al Djazairi",0],[89,"Yaseen Al Aassaf",0],[90,"Yaseen Al Aassaf",0],[91,"Othman Al Masseme",0],[92,"Ibraheem Al Jumayle",0],[93,"Muhammad Nasser Al Dine Al Albane",0],[94,"Yasser Al-Dosari",0],[95,"Mohamed Siddiq El-Minshawi",0],[96,"Muhammad Hamud",0],[97,"Muhammad Hamud",0],[98,"Muhammad Najee",0],[99,"Muhammad Najee",0],[100,"Muhammad Najee",0],[101,"Mukhtar Abelhamed Hafed",0],[102,"Ahmad Al Harasses",0],[103,"Omar Al-Kazabri",0],[104,"Muhammad Al Saed Maher",0],[105,"Ibraheem Jabar",0],[106,"Ibraheem Jabar",0],[107,"Mustafa Waled",0],[108,"Mahmud Al Tawakh",0],[109,"Mahmud Al Tawakh",0],[110,"Kamal Muhammad Al Marush",0],[111,"Kamal Muhammad Al Marush",0],[112,"Adam Abu Sakhra",0],[113,"Ahmed Ali",0],[114,"Ahmed Ali",0],[115,"Rabee Abdul Raheem Essa",0],[116,"Ahmad Ali Murtada",0],[117,"Nasser Al-Qatami",0],[118,"Nasser Al-Qatami",0],[130,"Mishary Rashid Alafasy",0],[131,"Mishary Rashid Alafasy",0],[132,"Mishary Rashid Alafasy",0],[133,"Mishary Rashid Alafasy",0],[134,"Abdul Basit Abdul Samad",0],[135,"Abdul Basit Abdul Samad",0],[136,"Abdul Basit Abdul Samad",0],[137,"Abdul Basit Abdul Samad",0],[138,"Abdul Basit Abdul Samad",0],[139,"Abdul Basit Abdul Samad",0],[140,"Abdul Basit Abdul Samad",0],[141,"Mustafa Ismail",0],[142,"Mahmoud Khalil Al-Hussary",0],[143,"Mohamed Siddiq El-Minshawi",0],[144,"Mohamed Siddiq El-Minshawi",0],[145,"Abul Ainain Shu'aisha",0],[146,"Ahmed Nuinaa",0],[147,"Ahmed Nuinaa",0],[148,"Mahmoud Ali Al-Banna",0],[149,"Mohamed Refaat",0],[152,"Ahmad Al Amade",0],[153,"Ahmad Al Amade",0],[154,"Ahmad Al Amade",0],[155,"Al Saed Metwale AL Aal",0],[156,"Hamdan Al Maleke",0],[157,"Mahde Al Bechee",0],[158,"Zaher Muhammad Taresh",0],[159,"Abd Alrazaq Saleh",0],[160,"Hamza Al Halabea",0],[161,"Abdu Al Karem Jabare",0],[162,"Al Bahlul Abu Arqub",0],[163,"Al Bahlul Abu Arqub",0],[164,"Saheb Hane Khatab",0],[165,"Ahmad Nawaf Al Mejlad",0],[166,"Ahmad Nawaf Al Mejlad",0],[167,"Haj Sulaiman Mukhtar",0],[168,"Hassan Khalfan",0],[169,"Saleh Al Nabet",0],[170,"Ali Hassan Abd AL Khaliq",0],[171,"Muad Al Qaseme",0],[172,"Nasser Al Abd Al Jabar",0],[173,"Hafed Hessen Erq",0],[175,"",0],[176,"",0],[177,"",0],[178,"",0],[179,"",0],[180,"",0],[181,"",0],[182,"",0],[183,"",0],[184,"",0],[185,"",0],[186,"",0],[187,"",0],[188,"",0],[189,"",0],[190,"",0],[191,"",0],[192,"",0],[193,"",0],[194,"",0],[195,"",0],[196,"",0],[197,"",0],[198,"",0],[199,"",0],[200,"",0],[201,"",0],[202,"",0],[203,"",0],[204,"",0],[205,"",0],[206,"",0],[207,"",0],[208,"",0],[209,"",0],[210,"",0],[211,"",0],[212,"",0],[213,"",0],[214,"",0],[215,"",0],[216,"",0],[217,"",0],[218,"",0],[219,"",0],[220,"",0],[221,"",0],[222,"",0],[223,"",0],[224,"",0],[225,"",0],[226,"",0],[227,"",0],[228,"",0],[229,"",0],[233,"",0],[234,"",0],[235,"",0],[236,"",0],[237,"",0],[238,"",0],[239,"",0],[240,"",0],[241,"",0],[242,"",0],[243,"",0],[244,"",0],[245,"",0],[246,"",0],[247,"",0],[248,"",0],[249,"",0],[250,"",0],[251,"",0],[252,"",0],[253,"",0],[254,"",0],[255,"",0],[258,"",0],[259,"",0],[260,"",0],[261,"",0],[262,"",0]];
+const RADIO_FALLBACK=[["Qurango Mix — mp3quran","https://qurango.net/radio/mix"],["Tarateel — mp3quran","https://qurango.net/radio/tarateel"],["Ahmad Khader Al-Tarabulsi","https://qurango.net/radio/ahmad_khader_altarabulsi"],["Alzain Mohammad Ahmad","https://qurango.net/radio/alzain_mohammad_ahmad"]];
 const KAABA={lat:21.422487,lng:39.826206};
 const METHODS={
   karachi:{fajr:18,isha:18},
@@ -329,7 +347,7 @@ COUNTRIES.forEach(c=>c[6].forEach((x,i)=>{CITY[c[0]+"-"+i]={id:c[0]+"-"+i,cc:c[0
 /* ================= I18N ================= */
 const LANGS=[["fa","فارسی"],["prs","دری"],["ps","پښتو"],["ar","العربية"],["en","English"]];
 const T={
-fa:{brand:"تقویم اهل سنت",now:"ساعت",home:"اوقات",cal:"تقویم",qibla:"قبله",adhkar:"اذکار",tasks:"کارها",fun:"سرگرمی",settings:"تنظیمات",about:"درباره و تماس",
+fa:{brand:"تقویم اهل سنت",quran:"قرآن",radioT:"رادیو قرآن آنلاین",needNet:"برای پخش اذان‌های پیش‌فرض، رادیو و دانلود، اینترنت لازم است.",playing:"در حال پخش",moreAdhan:"دانلود اذان‌های بیشتر از Assabile",dl:"دانلود",choose:"اذان دلخواه",def:"پیش‌فرض",madeBy:"تهیه و تنظیم",origin:"اهل افغانستان، ساکن ایران",email:"ایمیل سازنده",phone:"تلفن همراه",loading:"در حال بارگذاری…",unknownM:"مؤذن",holy:"مکه، مدینه، اقصی",dlHint:"اذان را دانلود کنید، بعد در بالا با «اذان دلخواه» برای هر نماز انتخابش کنید.",assabileRadio:"رادیوهای سایت Assabile",play:"پخش",now:"ساعت",home:"اوقات",cal:"تقویم",qibla:"قبله",adhkar:"اذکار",tasks:"کارها",fun:"سرگرمی",settings:"تنظیمات",about:"درباره و تماس",
  solar:"هجری شمسی",hijri:"هجری قمری",greg:"میلادی",next:"نماز بعدی",remain:"مانده تا",today:"امروز",
  p:["صبح (فجر)","طلوع آفتاب","ظهر","عصر","مغرب","عشا"],
  wd:["شنبه","یکشنبه","دوشنبه","سه‌شنبه","چهارشنبه","پنجشنبه","جمعه"],
@@ -348,12 +366,12 @@ fa:{brand:"تقویم اهل سنت",now:"ساعت",home:"اوقات",cal:"تق�
  lang:"زبان",country:"کشور",city:"شهر",method:"روش محاسبه",madhhab:"مذهب (وقت عصر)",hanafi:"حنفی",shafii:"شافعی، مالکی، حنبلی",
  hijriAdj:"تنظیم روز قمری (رؤیت هلال)",prec:"احتیاط (دقیقه)",custom:"مختصات دستی (اختیاری)",lat:"عرض جغرافیایی",lng:"طول جغرافیایی",tzh:"اختلاف ساعت با گرینویچ",useCustom:"استفاده از مختصات دستی",
  adhan:"اذان",adhanOn:"فعال کردن صدای اذان",adhanReady:"صدای اذان فعال است",adhanFile:"انتخاب فایل صوتی اذان از گوشی",adhanTest:"پخش آزمایشی",stop:"توقف",
- adhanNote:"اذان فقط وقتی پخش می‌شود که این برنامه باز باشد و صفحه روشن بماند. اگر فایل اذان انتخاب نکنید، صدای زنگ ملایم پخش می‌شود.",wake:"صفحه روشن بماند",
+ adhanNote:"اذان فقط وقتی پخش می‌شود که برنامه باز باشد. اگر اینترنت نباشد و اذان دلخواه هم انتخاب نکرده باشید، صدای زنگ ملایم پخش می‌شود.",wake:"صفحه روشن بماند",
  adhanTime:"وقت اذان",designer:"طراح و سازنده",contact:"راه‌های ارتباط",copy:"کپی",copied:"کپی شد",
  offline:"اوقات شرعی برای هر روز به‌طور خودکار محاسبه می‌شود و به اینترنت نیاز ندارد.",
  mNames:{karachi:"دانشگاه کراچی (۱۸°/۱۸°)",mwl:"رابطهٔ جهان اسلام (۱۸°/۱۷°)",ummalqura:"ام‌القری مکه",egypt:"هیئت مصری",isna:"آمریکای شمالی (ISNA)",gulf:"کشورهای خلیج",diyanet:"دیانت ترکیه",sea:"جنوب شرق آسیا (۲۰°/۱۸°)",uoif:"فرانسه (۱۲°/۱۲°)"},
- search:"جستجوی شهر…",saved:"ذخیره شد"},
-ps:{brand:"د اهل سنتو جنتري",now:"وخت",home:"وختونه",cal:"جنتري",qibla:"قبله",adhkar:"اذکار",tasks:"کارونه",fun:"ساعتېري",settings:"تنظیمات",about:"په اړه او اړیکه",
+ search:"جستجو…",saved:"ذخیره شد"},
+ps:{brand:"د اهل سنتو جنتري",quran:"قرآن",radioT:"آنلاین د قرآن راډیو",needNet:"د اذان، راډیو او ډاونلوډ لپاره انټرنټ ته اړتیا ده.",playing:"غږېږي",moreAdhan:"له Assabile نور اذانونه ډاونلوډ کړئ",dl:"ډاونلوډ",choose:"خوښ اذان",def:"اصلي",madeBy:"چمتو کوونکی",origin:"د افغانستان اوسېدونکی، په ایران کې مېشت",email:"برېښنالیک",phone:"ګرځنده تلیفون",loading:"بارېږي…",unknownM:"مؤذن",holy:"مکه، مدینه، اقصی",dlHint:"اذان ډاونلوډ کړئ، بیا یې د «خوښ اذان» په تڼۍ وټاکئ.",assabileRadio:"د Assabile راډیوګانې",play:"غږول",now:"وخت",home:"وختونه",cal:"جنتري",qibla:"قبله",adhkar:"اذکار",tasks:"کارونه",fun:"ساعتېري",settings:"تنظیمات",about:"په اړه او اړیکه",
  solar:"لمریز هجري",hijri:"سپوږمیز هجري",greg:"میلادي",next:"راتلونکی لمونځ",remain:"پاتې وخت",today:"نن",
  p:["سهار (فجر)","لمر ختل","ماسپښین","مازدیګر","ماښام","ماخستن"],
  wd:["شنبه","یکشنبه","دوشنبه","سه‌شنبه","چهارشنبه","پنجشنبه","جمعه"],
@@ -376,8 +394,8 @@ ps:{brand:"د اهل سنتو جنتري",now:"وخت",home:"وختونه",cal:"
  adhanTime:"د اذان وخت",designer:"ډیزاینر او جوړونکی",contact:"د اړیکې لارې",copy:"کاپي",copied:"کاپي شو",
  offline:"شرعي وختونه هره ورځ په خپله محاسبه کېږي او انټرنټ ته اړتیا نشته.",
  mNames:{karachi:"د کراچۍ پوهنتون (۱۸°/۱۸°)",mwl:"رابطة العالم الاسلامي",ummalqura:"ام القری",egypt:"مصري",isna:"ISNA",gulf:"خلیج",diyanet:"دیانت ترکیه",sea:"سویل ختیځه آسیا",uoif:"فرانسه"},
- search:"ښار ولټوئ…",saved:"خوندي شو"},
-ar:{brand:"تقويم أهل السنة",now:"الساعة",home:"المواقيت",cal:"التقويم",qibla:"القبلة",adhkar:"الأذكار",tasks:"المهام",fun:"ترفيه",settings:"الإعدادات",about:"عن التطبيق والتواصل",
+ search:"لټون…",saved:"خوندي شو"},
+ar:{brand:"تقويم أهل السنة",quran:"القرآن",radioT:"إذاعات القرآن الكريم",needNet:"يلزم الاتصال بالإنترنت للأذان الافتراضي والإذاعة والتنزيل.",playing:"يُبث الآن",moreAdhan:"تنزيل المزيد من الأذان من Assabile",dl:"تنزيل",choose:"أذان مخصص",def:"الافتراضي",madeBy:"إعداد وتنظيم",origin:"من أفغانستان، مقيم في إيران",email:"البريد الإلكتروني",phone:"الجوال",loading:"جارٍ التحميل…",unknownM:"مؤذن",holy:"مكة، المدينة، الأقصى",dlHint:"نزّل الأذان ثم اختره عبر زر «أذان مخصص» لكل صلاة.",assabileRadio:"إذاعات موقع Assabile",play:"تشغيل",now:"الساعة",home:"المواقيت",cal:"التقويم",qibla:"القبلة",adhkar:"الأذكار",tasks:"المهام",fun:"ترفيه",settings:"الإعدادات",about:"عن التطبيق والتواصل",
  solar:"هجري شمسي",hijri:"هجري قمري",greg:"ميلادي",next:"الصلاة القادمة",remain:"المتبقي",today:"اليوم",
  p:["الفجر","الشروق","الظهر","العصر","المغرب","العشاء"],
  wd:["السبت","الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة"],
@@ -400,8 +418,8 @@ ar:{brand:"تقويم أهل السنة",now:"الساعة",home:"المواقي
  adhanTime:"حان وقت الأذان",designer:"المصمم والمطوّر",contact:"وسائل التواصل",copy:"نسخ",copied:"تم النسخ",
  offline:"تُحسب المواقيت تلقائيًا لكل يوم ولا تحتاج إلى الإنترنت.",
  mNames:{karachi:"جامعة كراتشي (18°/18°)",mwl:"رابطة العالم الإسلامي",ummalqura:"أم القرى",egypt:"الهيئة المصرية",isna:"أمريكا الشمالية",gulf:"دول الخليج",diyanet:"ديانت تركيا",sea:"جنوب شرق آسيا",uoif:"فرنسا"},
- search:"ابحث عن مدينة…",saved:"تم الحفظ"},
-en:{brand:"Sunni Calendar",now:"Time",home:"Times",cal:"Calendar",qibla:"Qibla",adhkar:"Adhkar",tasks:"Tasks",fun:"Fun",settings:"Settings",about:"About & contact",
+ search:"بحث…",saved:"تم الحفظ"},
+en:{brand:"Sunni Calendar",quran:"Quran",radioT:"Quran radio",needNet:"Default adhans, radio and downloads need internet.",playing:"Now playing",moreAdhan:"Download more adhans from Assabile",dl:"Download",choose:"Custom adhan",def:"Default",madeBy:"Prepared by",origin:"From Afghanistan, living in Iran",email:"Email",phone:"Mobile",loading:"Loading…",unknownM:"Muezzin",holy:"Makkah, Madinah, Al-Aqsa",dlHint:"Download an adhan, then pick it with “Custom adhan” for any prayer.",assabileRadio:"Assabile radio page",play:"Play",now:"Time",home:"Times",cal:"Calendar",qibla:"Qibla",adhkar:"Adhkar",tasks:"Tasks",fun:"Fun",settings:"Settings",about:"About & contact",
  solar:"Solar Hijri",hijri:"Lunar Hijri",greg:"Gregorian",next:"Next prayer",remain:"Time left",today:"Today",
  p:["Fajr","Sunrise","Dhuhr","Asr","Maghrib","Isha"],
  wd:["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],
@@ -420,11 +438,11 @@ en:{brand:"Sunni Calendar",now:"Time",home:"Times",cal:"Calendar",qibla:"Qibla",
  lang:"Language",country:"Country",city:"City",method:"Calculation method",madhhab:"Madhhab (Asr time)",hanafi:"Hanafi",shafii:"Shafi'i, Maliki, Hanbali",
  hijriAdj:"Hijri day adjustment (moon sighting)",prec:"Precaution (minutes)",custom:"Manual location (optional)",lat:"Latitude",lng:"Longitude",tzh:"UTC offset (hours)",useCustom:"Use manual location",
  adhan:"Adhan",adhanOn:"Turn on adhan sound",adhanReady:"Adhan sound is on",adhanFile:"Choose an adhan audio file",adhanTest:"Test",stop:"Stop",
- adhanNote:"The adhan plays only while this app is open and the screen is on. Without a file, a soft chime plays.",wake:"Keep screen on",
+ adhanNote:"The adhan plays only while the app is open. With no internet and no custom file, a soft chime plays.",wake:"Keep screen on",
  adhanTime:"Time for adhan",designer:"Designer & developer",contact:"Contact",copy:"Copy",copied:"Copied",
  offline:"Prayer times are calculated automatically for every day and need no internet.",
  mNames:{karachi:"Univ. of Karachi (18°/18°)",mwl:"Muslim World League (18°/17°)",ummalqura:"Umm al-Qura",egypt:"Egyptian Authority",isna:"ISNA (15°/15°)",gulf:"Gulf",diyanet:"Diyanet Turkey",sea:"Southeast Asia (20°/18°)",uoif:"France (12°/12°)"},
- search:"Search city…",saved:"Saved"}
+ search:"Search…",saved:"Saved"}
 };
 T.prs=Object.assign({},T.fa,{brand:"جنتری اهل سنت",cal:"جنتری",tasks:"کارها",
  p:["صبح (فجر)","طلوع آفتاب","پیشین","دیگر (عصر)","شام","خفتن"],
@@ -688,26 +706,34 @@ function tick(){
 }
 
 /* ================= ADHAN ================= */
-let actx=null,adhanAudio=null,adhanBlobUrl=null,fired={};
+let actx=null,adhanAudio=null,fired={},customUrl={},customName=load("sc_adhan_names",{});
 function idb(){return new Promise((res,rej)=>{try{const r=indexedDB.open("sc_adhan",1);r.onupgradeneeded=()=>r.result.createObjectStore("f");r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}catch(e){rej(e)}})}
-async function loadAdhanFile(){try{const db=await idb();const tx=db.transaction("f").objectStore("f").get("adhan");tx.onsuccess=()=>{if(tx.result){adhanBlobUrl=URL.createObjectURL(tx.result.blob);S.adhanName=tx.result.name;if(S.tab==="settings")renderView()}}}catch(e){}}
-async function storeAdhanFile(file){try{const db=await idb();db.transaction("f","readwrite").objectStore("f").put({blob:file,name:file.name},"adhan")}catch(e){}
-  if(adhanBlobUrl)URL.revokeObjectURL(adhanBlobUrl);adhanBlobUrl=URL.createObjectURL(file);S.adhanName=file.name;saveS();}
-function unlockAudio(){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();actx.resume();}catch(e){}
-  if(!adhanAudio){adhanAudio=new Audio();}
-  S.audioOn=true;}
-function chime(){ if(!actx)return; const notes=[523.25,659.25,783.99,659.25,587.33,523.25,392,523.25];let tm=actx.currentTime+0.05;
+async function loadAdhanFiles(){try{const db=await idb();const st=db.transaction("f").objectStore("f");[0,2,3,4,5].forEach(i=>{const r=st.get("a"+i);r.onsuccess=()=>{if(r.result&&r.result.blob)customUrl[i]=URL.createObjectURL(r.result.blob)}})}catch(e){}}
+async function storeAdhanFile(i,file){try{const db=await idb();db.transaction("f","readwrite").objectStore("f").put({blob:file,name:file.name},"a"+i)}catch(e){}
+  if(customUrl[i])URL.revokeObjectURL(customUrl[i]);customUrl[i]=URL.createObjectURL(file);customName[i]=file.name;save("sc_adhan_names",customName)}
+async function clearAdhanFile(i){try{const db=await idb();db.transaction("f","readwrite").objectStore("f").delete("a"+i)}catch(e){}
+  if(customUrl[i])URL.revokeObjectURL(customUrl[i]);delete customUrl[i];delete customName[i];save("sc_adhan_names",customName)}
+function unlockAudio(){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();actx.resume()}catch(e){}
+  if(!adhanAudio)adhanAudio=new Audio();S.audioOn=true}
+function chime(){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)()}catch(e){return} const notes=[523.25,659.25,783.99,659.25,587.33,523.25,392,523.25];let tm=actx.currentTime+0.05;
   for(let r=0;r<2;r++)notes.forEach((f,i)=>{const o=actx.createOscillator(),g=actx.createGain();o.type="sine";o.frequency.value=f;o.connect(g);g.connect(actx.destination);
    const st=tm+i*0.55+r*5;g.gain.setValueAtTime(0,st);g.gain.linearRampToValueAtTime(0.28,st+0.04);g.gain.exponentialRampToValueAtTime(0.001,st+1.4);o.start(st);o.stop(st+1.5)});}
-function playAdhan(){
-  if(adhanBlobUrl&&adhanAudio){adhanAudio.src=adhanBlobUrl;adhanAudio.currentTime=0;adhanAudio.play().catch(()=>chime())}else chime();
+function playAdhan(i){
+  if(i==null||i===1)i=2;
+  stopRadio();
+  if(!adhanAudio)adhanAudio=new Audio();
+  const src=customUrl[i]||ADHAN_URLS[i];
+  if(!src){chime();return}
+  adhanAudio.src=src;adhanAudio.currentTime=0;
+  adhanAudio.play().catch(()=>chime());
+  adhanAudio.onerror=()=>chime();
 }
-function stopAdhan(){try{adhanAudio&&adhanAudio.pause()}catch(e){} try{if(actx){actx.close();actx=null;unlockAudio()}}catch(e){} $("overlay").hidden=true}
+function stopAdhan(){try{adhanAudio&&adhanAudio.pause()}catch(e){} try{if(actx){actx.close();actx=null}}catch(e){} $("overlay").hidden=true}
 function checkAdhan(today,nowMin,tt){
   for(const i of [0,2,3,4,5]){
     if(!S.adhan[i])continue;
     const k=key(today)+"-"+i;
-    if(nowMin>=tt[i]&&nowMin<tt[i]+1&&!fired[k]){fired[k]=1;showAdhan(i);if(S.audioOn)playAdhan()}
+    if(nowMin>=tt[i]&&nowMin<tt[i]+1&&!fired[k]){fired[k]=1;showAdhan(i);playAdhan(i)}
   }
 }
 function showAdhan(i){
@@ -720,10 +746,40 @@ let wakeLock=null;
 async function applyWake(){try{if(S.wake&&navigator.wakeLock){wakeLock=await navigator.wakeLock.request("screen")}else if(wakeLock){wakeLock.release();wakeLock=null}}catch(e){}}
 document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"&&S.wake)applyWake()});
 
+/* ================= RADIO ================= */
+let radioAudio=null,radioOn=null,radios=null,radioErr=false,radioQ="";
+function stopRadio(){try{radioAudio&&radioAudio.pause()}catch(e){} radioOn=null;document.querySelectorAll(".rlist button.on").forEach(b=>b.classList.remove("on"));const nb=$("nowbar");if(nb)nb.hidden=true}
+function playRadio(url,name){try{adhanAudio&&adhanAudio.pause()}catch(e){}
+  if(!radioAudio)radioAudio=new Audio();radioAudio.src=url;radioAudio.play().catch(()=>toast(t("needNet")));radioOn=url;radioName=name;if(S.tab==="quran")renderView()}
+let radioName="";
+async function loadRadios(){
+  const lg=S.lang==="en"?"eng":S.lang==="ar"?"ar":"fa";
+  try{const r=await fetch("https://mp3quran.net/api/v3/radios?language="+lg);const j=await r.json();
+    radios=(j.radios||[]).filter(x=>x&&x.url&&/^https?:\/\//.test(x.url)).map(x=>[String(x.name),String(x.url).replace(/^http:/,"https:")]);
+    if(!radios.length)throw 0}
+  catch(e){radios=RADIO_FALLBACK;radioErr=true}
+  if(S.tab==="quran")renderView();
+}
+function vQuran(v){
+  if(radios===null){loadRadios()}
+  const q=radioQ.trim().toLowerCase();
+  const list=(radios||[]).filter(x=>!q||x[0].toLowerCase().includes(q));
+  v.innerHTML=`<section class="card"><h2>${esc(t("radioT"))}</h2>
+    <div class="nowbar" id="nowbar" ${radioOn?"":"hidden"}><span>${esc(t("playing"))}: <b>${esc(radioName)}</b></span><button class="btn sm alt" id="rStop">${esc(t("stop"))}</button></div>
+    <div class="addrow" style="margin-bottom:10px"><input id="rq" placeholder="${esc(t("search"))}" value="${esc(radioQ)}" autocomplete="off"></div>
+    ${radios===null?`<p class="muted">${esc(t("loading"))}</p>`:`<div class="rlist">${list.map((x,i)=>`<button data-r="${i}" class="${radioOn===x[1]?"on":""}"><span>${esc(x[0])}</span>${svg('<path d="M8 5v14l11-7z"/>')}</button>`).join("")}</div>`}
+    <p class="muted">${esc(t("needNet"))}</p>
+    <a class="btn alt" href="https://www.assabile.com/radio" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none">${esc(t("assabileRadio"))}</a>
+   </section>`;
+  v.querySelectorAll("[data-r]").forEach(b=>b.onclick=()=>{const x=list[+b.dataset.r];if(radioOn===x[1])stopRadio();else playRadio(x[1],x[0])});
+  const st=$("rStop");if(st)st.onclick=()=>{stopRadio();renderView()};
+  const rq=$("rq");rq.oninput=()=>{radioQ=rq.value;const pos=rq.selectionStart;renderView();const n=$("rq");n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}};
+}
+
 /* ================= VIEWS ================= */
 const TABS=[["home",'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'],["cal",'<rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/>'],
  ["qibla",'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5 13.4 13.4 8.5 15.5 10.6 10.6z"/>'],["adhkar",'<circle cx="12" cy="5" r="1.6"/><circle cx="17.5" cy="8" r="1.6"/><circle cx="19" cy="14" r="1.6"/><circle cx="15.5" cy="19" r="1.6"/><circle cx="8.5" cy="19" r="1.6"/><circle cx="5" cy="14" r="1.6"/><circle cx="6.5" cy="8" r="1.6"/>'],
- ["tasks",'<path d="M9 6h11M9 12h11M9 18h11M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/>'],["fun",'<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/>']];
+ ["tasks",'<path d="M9 6h11M9 12h11M9 18h11M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/>'],["quran",'<path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5zM12 6.5v13"/>'],["fun",'<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/>']];
 function renderTabs(){
   $("tabs").innerHTML=TABS.map(([k,ic])=>`<button data-tab="${k}" ${S.tab===k?'aria-current="page"':""}>${svg(ic)}<span>${esc(t(k))}</span></button>`).join("");
   $("tabs").querySelectorAll("button").forEach(b=>b.onclick=()=>go(b.dataset.tab));
@@ -731,7 +787,7 @@ function renderTabs(){
 function go(tab){S.tab=tab;saveS();renderTabs();renderView();window.scrollTo(0,0)}
 function renderView(){
   const v=$("view");
-  ({home:vHome,cal:vCal,qibla:vQibla,adhkar:vAdhkar,tasks:vTasks,fun:vFun,settings:vSettings,about:vAbout}[S.tab]||vHome)(v);
+  ({home:vHome,cal:vCal,qibla:vQibla,adhkar:vAdhkar,tasks:vTasks,quran:vQuran,fun:vFun,settings:vSettings,about:vAbout}[S.tab]||vHome)(v);
   tick();
 }
 function prayerRows(dt,isToday){
@@ -928,11 +984,18 @@ function vSettings(v){
     <label class="row" style="gap:8px;align-self:end;padding-bottom:8px"><input type="checkbox" id="cUse" ${S.useCustom?"checked":""} style="width:20px;height:20px;accent-color:var(--green)">${esc(t("useCustom"))}</label>
    </div></section>
    <section class="card"><h2>${esc(t("adhan"))}</h2>
-    <div class="track" style="margin-bottom:12px">${[0,2,3,4,5].map(i=>`<button data-ad="${i}" aria-pressed="${!!S.adhan[i]}">${esc(L().p[i].split(" ")[0])}</button>`).join("")}</div>
-    <div class="row"><button class="btn" id="aOn2">${esc(S.audioOn?t("adhanReady"):t("adhanOn"))}</button><button class="btn alt" id="aTest">${esc(t("adhanTest"))}</button><button class="btn alt" id="aStop">${esc(t("stop"))}</button></div>
-    <label class="f" style="margin-top:12px">${esc(t("adhanFile"))}${S.adhanName?` — <b>${esc(S.adhanName)}</b>`:""}<input type="file" id="aFile" accept="audio/*"></label>
+    <div style="display:flex;flex-direction:column;gap:8px">${[0,2,3,4,5].map(i=>`<div class="adrow"><b>${esc(L().p[i])}</b>
+      <div class="acts"><button class="chip" data-ad="${i}" aria-pressed="${!!S.adhan[i]}">${S.adhan[i]?"ON":"OFF"}</button>
+      <button class="btn sm alt" data-play="${i}" aria-label="${esc(t("adhanTest"))}">▶</button>
+      <span class="btn sm alt filebtn">${esc(t("choose"))}<input type="file" accept="audio/*" data-file="${i}"></span>
+      ${customName[i]?`<button class="btn sm alt" data-clr="${i}">${esc(t("def"))}</button>`:""}</div>
+      <small>${customName[i]?"♪ "+esc(customName[i]):esc(t("def"))+" · assabile.com"}</small></div>`).join("")}</div>
+    <div class="row" style="margin-top:12px"><button class="btn" id="aOn2">${esc(S.audioOn?t("adhanReady"):t("adhanOn"))}</button><button class="btn alt" id="aStop">${esc(t("stop"))}</button></div>
     <label class="row" style="gap:8px;margin-top:10px"><input type="checkbox" id="sWake" ${S.wake?"checked":""} style="width:20px;height:20px;accent-color:var(--green)">${esc(t("wake"))}</label>
-    <p class="muted">${esc(t("adhanNote"))}</p></section>
+    <p class="muted">${esc(t("adhanNote"))} ${esc(t("needNet"))}</p>
+    <details class="dl"><summary>${esc(t("moreAdhan"))} (${N(ADHAN_LIST.length)})</summary><p class="muted">${esc(t("dlHint"))}</p>
+     <div class="dlist">${ADHAN_LIST.map(x=>`<a href="https://www.assabile.com/download/adhan/${x[0]}" target="_blank" rel="noopener"><span>${x[2]?esc(t("holy"))+" · ":""}${esc(x[1]||t("unknownM")+" #"+x[0])}</span><b>${esc(t("dl"))} ↓</b></a>`).join("")}</div></details>
+   </section>
    <section class="card"><button class="btn alt" id="goAbout2" style="width:100%">${esc(t("about"))}</button></section>`;
   const after=()=>{saveS();lastDayKey="";renderTabs();applyDir();renderHeader();renderView()};
   $("sLang").onchange=e=>{S.lang=e.target.value;after()};
@@ -945,29 +1008,32 @@ function vSettings(v){
   const cust=()=>{const la=parseFloat($("cLat").value),lo=parseFloat($("cLng").value),tz=parseFloat($("cTz").value);
     if(isFinite(la)&&Math.abs(la)<=66&&isFinite(lo)&&Math.abs(lo)<=180&&isFinite(tz)&&Math.abs(tz)<=14){S.cLat=la;S.cLng=lo;S.cTz=tz}S.useCustom=$("cUse").checked;after()};
   ["cLat","cLng","cTz"].forEach(id=>$(id).onchange=cust);$("cUse").onchange=cust;
-  v.querySelectorAll("[data-ad]").forEach(b=>b.onclick=()=>{const i=b.dataset.ad;S.adhan[i]=!S.adhan[i];saveS();b.setAttribute("aria-pressed",!!S.adhan[i])});
+  v.querySelectorAll("[data-ad]").forEach(b=>b.onclick=()=>{const i=b.dataset.ad;S.adhan[i]=!S.adhan[i];saveS();b.setAttribute("aria-pressed",!!S.adhan[i]);b.textContent=S.adhan[i]?"ON":"OFF"});
+  v.querySelectorAll("[data-play]").forEach(b=>b.onclick=()=>{unlockAudio();saveS();playAdhan(+b.dataset.play)});
+  v.querySelectorAll("[data-file]").forEach(inp=>inp.onchange=e=>{const f=e.target.files[0];if(f)storeAdhanFile(+inp.dataset.file,f).then(()=>{toast(t("saved"));renderView()})});
+  v.querySelectorAll("[data-clr]").forEach(b=>b.onclick=()=>clearAdhanFile(+b.dataset.clr).then(()=>renderView()));
   $("aOn2").onclick=()=>{unlockAudio();saveS();renderView();toast(t("adhanReady"))};
-  $("aTest").onclick=()=>{unlockAudio();saveS();playAdhan()};
   $("aStop").onclick=stopAdhan;
-  $("aFile").onchange=e=>{const f=e.target.files[0];if(f){storeAdhanFile(f).then(()=>{toast(t("saved"));renderView()})}};
   $("sWake").onchange=e=>{S.wake=e.target.checked;saveS();applyWake()};
   $("goAbout2").onclick=()=>go("about");
 }
 
 function vAbout(v){
-  const em="Hashem5363@gmail.com",ph="0913 951 8100";
+  const em="Hashem5363@gmail.com",ph="00989139518100",nm=S.lang==="en"?"Hashem Mohammadi":"هاشم محمدی";
   v.innerHTML=`<section class="card about">
     <div class="brand" style="color:var(--green)">${esc(t("brand"))}</div>
     <p class="muted" style="margin:0">${esc(t("offline"))}</p>
-    <div class="muted" style="margin-top:10px">${esc(t("designer"))}</div>
-    <div class="who">${S.lang==="en"?"Hashem Mohammadi":"هاشم محمدی"}</div>
+    <div class="muted" style="margin-top:10px">${esc(t("madeBy"))} · ${esc(t("designer"))}</div>
+    <div class="who">${nm}</div>
+    <div class="muted">${esc(t("origin"))}</div>
     <h3 style="margin-top:6px">${esc(t("contact"))}</h3>
-    <div class="contact"><span>${em}</span><button class="btn sm" data-cp="${em}">${esc(t("copy"))}</button></div>
-    <div class="contact"><span>${ph}</span><button class="btn sm" data-cp="${ph.replace(/ /g,"")}">${esc(t("copy"))}</button></div>
-    <img class="avatar" src="${PHOTO}" alt="${S.lang==="en"?"Hashem Mohammadi":"هاشم محمدی"}" style="margin-top:12px">
+    <div class="contact"><a href="mailto:${em}"><small style="display:block;opacity:.7;font-weight:400">${esc(t("email"))}</small><span>${em}</span></a><button class="btn sm" data-cp="${em}">${esc(t("copy"))}</button></div>
+    <div class="contact"><a href="tel:+989139518100"><small style="display:block;opacity:.7;font-weight:400">${esc(t("phone"))}</small><span>${ph}</span></a><button class="btn sm" data-cp="${ph}">${esc(t("copy"))}</button></div>
+    <img class="avatar" src="${PHOTO}" alt="${nm}" style="margin-top:12px">
+    <div class="muted" style="font-size:12px">${nm}</div>
    </section>`;
   v.querySelectorAll("[data-cp]").forEach(b=>b.onclick=()=>{const s=b.dataset.cp;
-    const fb=()=>{const sp=b.previousElementSibling;const r=document.createRange();r.selectNodeContents(sp);const sel=getSelection();sel.removeAllRanges();sel.addRange(r)};
+    const fb=()=>{const sp=b.parentElement.querySelector("span");const r=document.createRange();r.selectNodeContents(sp);const sel=getSelection();sel.removeAllRanges();sel.addRange(r)};
     try{navigator.clipboard.writeText(s).then(()=>toast(t("copied")),fb)}catch(e){fb()}});
 }
 
@@ -977,8 +1043,7 @@ function applyDir(){const a=$("app");a.dir=RTL()?"rtl":"ltr";a.lang=S.lang==="pr
 $("setBtn").onclick=()=>go("settings");
 $("cityBtn").onclick=()=>go("settings");
 $("langBtn").onclick=()=>{const i=LANGS.findIndex(l=>l[0]===S.lang);S.lang=LANGS[(i+1)%LANGS.length][0];saveS();lastDayKey="";applyDir();renderTabs();renderHeader();renderView()};
-S.audioOn=false;
-applyDir();renderTabs();renderHeader();renderView();loadAdhanFile();
+applyDir();renderTabs();renderHeader();renderView();loadAdhanFiles();
 setInterval(tick,1000);
 if(S.wake)applyWake();
 </script>
