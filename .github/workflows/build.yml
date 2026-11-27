@@ -29,7 +29,7 @@ jobs:
           HTML=$(ls *.html | head -n 1)
           echo "Using $HTML"
           P=android
-          mkdir -p $P/app/src/main/java/ir/hashem/taqvim $P/app/src/main/assets $P/app/src/main/res/mipmap-xxhdpi
+          mkdir -p $P/app/src/main/java/ir/hashem/taqvim $P/app/src/main/assets $P/app/src/main/res/mipmap-xxhdpi $P/app/src/main/res/drawable
           cp "$HTML" $P/app/src/main/assets/index.html
           echo "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" | base64 -d > $P/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
 
@@ -59,7 +59,7 @@ jobs:
                   minSdk 21
                   targetSdk 34
                   versionCode(Integer.parseInt(System.getenv("VCODE") ?: "1"))
-                  versionName("1.0." + (System.getenv("VCODE") ?: "1"))
+                  versionName("3.0." + (System.getenv("VCODE") ?: "1"))
               }
               signingConfigs {
                   release {
@@ -90,32 +90,378 @@ jobs:
           <?xml version="1.0" encoding="utf-8"?>
           <manifest xmlns:android="http://schemas.android.com/apk/res/android">
               <uses-permission android:name="android.permission.INTERNET" />
+              <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+              <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+              <uses-permission android:name="android.permission.WAKE_LOCK" />
+              <uses-permission android:name="android.permission.VIBRATE" />
+              <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+              <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+              <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+              <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" android:maxSdkVersion="32" />
+              <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+              <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+              <queries><intent><action android:name="android.intent.action.TTS_SERVICE" /></intent></queries>
+              <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+              <uses-feature android:name="android.hardware.sensor.compass" android:required="false" />
               <application
-                  android:label="تقویم اهل سنت"
+                  android:label="تقویم و اعمال روزانه اهل‌سنت"
                   android:icon="@mipmap/ic_launcher"
                   android:theme="@android:style/Theme.Material.Light.NoActionBar"
+                  android:usesCleartextTraffic="false"
                   android:supportsRtl="true">
                   <activity
                       android:name=".MainActivity"
                       android:exported="true"
-                      android:configChanges="orientation|screenSize|keyboardHidden">
+                      android:launchMode="singleTask"
+                      android:configChanges="orientation|screenSize|keyboardHidden|screenLayout|uiMode">
                       <intent-filter>
                           <action android:name="android.intent.action.MAIN" />
                           <category android:name="android.intent.category.LAUNCHER" />
                       </intent-filter>
                   </activity>
+                  <receiver android:name=".AlarmReceiver" android:exported="false" />
+                  <receiver android:name=".BootReceiver" android:exported="true">
+                      <intent-filter>
+                          <action android:name="android.intent.action.BOOT_COMPLETED" />
+                          <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                          <action android:name="android.intent.action.TIME_SET" />
+                          <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                      </intent-filter>
+                  </receiver>
+                  <service android:name=".AdhanService" android:exported="false" android:foregroundServiceType="mediaPlayback" />
               </application>
           </manifest>
+          EOF
+
+          cat > $P/app/src/main/res/drawable/ic_stat.xml <<'EOF'
+          <vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="24" android:viewportHeight="24">
+              <path android:fillColor="#FFFFFFFF" android:pathData="M14.5,2.5A9.5,9.5 0,1 0,21.5 17A8,8 0,1 1,14.5 2.5z"/>
+              <path android:fillColor="#FFFFFFFF" android:pathData="M18,6l0.9,1.9 2.1,0.3 -1.5,1.5 0.4,2.1 -1.9,-1 -1.9,1 0.4,-2.1 -1.5,-1.5 2.1,-0.3z"/>
+          </vector>
+          EOF
+
+          cat > $P/app/src/main/java/ir/hashem/taqvim/AdhanService.java <<'EOF'
+          package ir.hashem.taqvim;
+
+          import android.app.Notification;
+          import android.app.PendingIntent;
+          import android.app.Service;
+          import android.content.Intent;
+          import android.content.pm.ServiceInfo;
+          import android.media.AudioAttributes;
+          import android.media.MediaPlayer;
+          import android.media.Ringtone;
+          import android.media.RingtoneManager;
+          import android.os.Build;
+          import android.os.IBinder;
+          import android.os.PowerManager;
+
+          public class AdhanService extends Service {
+              private MediaPlayer mp;
+              private Ringtone rt;
+
+              @Override
+              public IBinder onBind(Intent i) { return null; }
+
+              @Override
+              public int onStartCommand(Intent in, int flags, int id) {
+                  if (in != null && "STOP".equals(in.getAction())) { stopSelf(); return START_NOT_STICKY; }
+                  String name = in != null ? in.getStringExtra("n") : null;
+                  String url = in != null ? in.getStringExtra("u") : null;
+                  if (name == null) name = "اذان";
+                  Scheduler.channels(this);
+                  Intent stop = new Intent(this, AdhanService.class).setAction("STOP");
+                  PendingIntent sp = PendingIntent.getService(this, 9, stop, Scheduler.piFlags());
+                  Notification n = Scheduler.builder(this, Scheduler.CH_ADHAN)
+                          .setContentTitle(name)
+                          .setContentText("الله أكبر، الله أكبر")
+                          .setContentIntent(Scheduler.openApp(this))
+                          .addAction(new Notification.Action.Builder(null, "توقف", sp).build())
+                          .setDeleteIntent(sp)
+                          .build();
+                  try {
+                      if (Build.VERSION.SDK_INT >= 29) startForeground(Scheduler.ADHAN_ID, n, ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK);
+                      else startForeground(Scheduler.ADHAN_ID, n);
+                  } catch (Exception e) { }
+                  play(url);
+                  return START_NOT_STICKY;
+              }
+
+              private void play(String url) {
+                  release();
+                  try {
+                      mp = new MediaPlayer();
+                      mp.setAudioAttributes(new AudioAttributes.Builder()
+                              .setUsage(AudioAttributes.USAGE_ALARM)
+                              .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH).build());
+                      mp.setWakeMode(this, PowerManager.PARTIAL_WAKE_LOCK);
+                      mp.setDataSource(url);
+                      mp.setOnPreparedListener(MediaPlayer::start);
+                      mp.setOnCompletionListener(m -> stopSelf());
+                      mp.setOnErrorListener((m, w, e) -> { fallback(); return true; });
+                      mp.prepareAsync();
+                  } catch (Exception e) { fallback(); }
+              }
+
+              private void fallback() {
+                  try {
+                      rt = RingtoneManager.getRingtone(this, RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+                      if (rt != null) rt.play();
+                  } catch (Exception e) { }
+                  new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(this::stopSelf, 15000);
+              }
+
+              private void release() {
+                  if (mp != null) { try { mp.release(); } catch (Exception e) { } mp = null; }
+              }
+
+              @Override
+              public void onDestroy() {
+                  release();
+                  if (rt != null) try { rt.stop(); } catch (Exception e) { }
+                  super.onDestroy();
+              }
+          }
+          EOF
+
+          cat > $P/app/src/main/java/ir/hashem/taqvim/AlarmReceiver.java <<'EOF'
+          package ir.hashem.taqvim;
+
+          import android.app.Notification;
+          import android.app.NotificationManager;
+          import android.content.BroadcastReceiver;
+          import android.content.Context;
+          import android.content.Intent;
+          import android.content.SharedPreferences;
+          import android.media.RingtoneManager;
+          import android.os.Build;
+
+          public class AlarmReceiver extends BroadcastReceiver {
+              @Override
+              public void onReceive(Context c, Intent in) {
+                  SharedPreferences p = c.getSharedPreferences(Scheduler.PREFS, Context.MODE_PRIVATE);
+                  long t = in.getLongExtra("t", 0);
+                  boolean fresh = t > 0 && Math.abs(System.currentTimeMillis() - t) < 10 * 60000L;
+                  if (fresh && p.getBoolean("adhanOn", false) && in.getBooleanExtra("a", false)) {
+                      Intent s = new Intent(c, AdhanService.class);
+                      s.putExtra("n", in.getStringExtra("n"));
+                      s.putExtra("u", in.getStringExtra("u"));
+                      try {
+                          if (Build.VERSION.SDK_INT >= 26) c.startForegroundService(s); else c.startService(s);
+                      } catch (Exception e) {
+                          Scheduler.channels(c);
+                          NotificationManager nm = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
+                          Notification.Builder b = Scheduler.builder(c, Scheduler.CH_ADHAN)
+                                  .setContentTitle(in.getStringExtra("n"))
+                                  .setContentText("الله أكبر")
+                                  .setAutoCancel(true)
+                                  .setContentIntent(Scheduler.openApp(c));
+                          if (Build.VERSION.SDK_INT < 26) b.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+                          if (nm != null) try { nm.notify(Scheduler.ADHAN_ID, b.build()); } catch (Exception e2) { }
+                      }
+                  }
+                  Scheduler.scheduleNext(c);
+              }
+          }
+          EOF
+
+          cat > $P/app/src/main/java/ir/hashem/taqvim/AppBridge.java <<'EOF'
+          package ir.hashem.taqvim;
+
+          import android.app.AlarmManager;
+          import android.content.Context;
+          import android.content.Intent;
+          import android.content.SharedPreferences;
+          import android.net.Uri;
+          import android.os.Build;
+          import android.provider.Settings;
+          import android.webkit.JavascriptInterface;
+
+          import java.io.ByteArrayOutputStream;
+          import java.io.InputStream;
+          import java.net.HttpURLConnection;
+          import java.net.URL;
+
+          public class AppBridge {
+              private final MainActivity act;
+
+              AppBridge(MainActivity a) { act = a; }
+
+              static String q(String s) {
+                  if (s == null) return "null";
+                  StringBuilder b = new StringBuilder("\"");
+                  for (char c : s.toCharArray()) {
+                      if (c == '"' || c == '\\') b.append('\\').append(c);
+                      else if (c == '\n') b.append("\\n");
+                      else if (c == '\r') b.append("\\r");
+                      else if (c == '\u2028' || c == '\u2029' || c < 0x20) b.append(String.format("\\u%04x", (int) c));
+                      else b.append(c);
+                  }
+                  return b.append('"').toString();
+              }
+
+              @JavascriptInterface
+              public boolean isNative() { return true; }
+
+              @JavascriptInterface
+              public void schedule(String json, boolean adhanOn, boolean statusOn) {
+                  SharedPreferences p = act.getSharedPreferences(Scheduler.PREFS, Context.MODE_PRIVATE);
+                  p.edit().putString("alarms", json).putBoolean("adhanOn", adhanOn).putBoolean("statusOn", statusOn).apply();
+                  Scheduler.scheduleNext(act);
+              }
+
+              @JavascriptInterface
+              public void speak(String text, String lang) { act.speak(text, lang); }
+
+              @JavascriptInterface
+              public void startCompass() { act.startCompass(); }
+
+              @JavascriptInterface
+              public void stopCompass() { act.stopCompass(); }
+
+              @JavascriptInterface
+              public void keepScreenOn(boolean on) { act.setKeepScreenOn(on); }
+
+              @JavascriptInterface
+              public void requestNotifications() { act.askNotifications(); }
+
+              @JavascriptInterface
+              public boolean canExact() {
+                  if (Build.VERSION.SDK_INT < 31) return true;
+                  AlarmManager am = (AlarmManager) act.getSystemService(Context.ALARM_SERVICE);
+                  return am != null && am.canScheduleExactAlarms();
+              }
+
+              @JavascriptInterface
+              public void openExactSettings() {
+                  if (Build.VERSION.SDK_INT >= 31) {
+                      try {
+                          Intent i = new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM, Uri.parse("package:" + act.getPackageName()));
+                          act.startActivity(i);
+                      } catch (Exception e) { }
+                  }
+              }
+
+              @JavascriptInterface
+              public void stopAdhan() {
+                  try { act.stopService(new Intent(act, AdhanService.class)); } catch (Exception e) { }
+              }
+
+              @JavascriptInterface
+              public void getLocation(String cb) { act.runOnUiThread(() -> act.askLocation(cb)); }
+
+              @JavascriptInterface
+              public void httpGet(final String url, final String cb) {
+                  new Thread(() -> {
+                      String body = null; boolean ok = false;
+                      try {
+                          HttpURLConnection c = (HttpURLConnection) new URL(url).openConnection();
+                          c.setConnectTimeout(15000); c.setReadTimeout(20000);
+                          c.setRequestProperty("User-Agent", "Mozilla/5.0 (Linux; Android) TaqvimApp");
+                          c.setInstanceFollowRedirects(true);
+                          InputStream in = c.getInputStream();
+                          ByteArrayOutputStream out = new ByteArrayOutputStream();
+                          byte[] buf = new byte[8192]; int n;
+                          while ((n = in.read(buf)) > 0) { out.write(buf, 0, n); if (out.size() > 4000000) break; }
+                          in.close();
+                          body = out.toString("UTF-8"); ok = c.getResponseCode() < 400;
+                      } catch (Exception e) { body = String.valueOf(e.getMessage()); }
+                      act.js("window.__nativeCb&&window.__nativeCb(" + q(cb) + "," + ok + "," + q(body) + ")");
+                  }).start();
+              }
+          }
+          EOF
+
+          cat > $P/app/src/main/java/ir/hashem/taqvim/BootReceiver.java <<'EOF'
+          package ir.hashem.taqvim;
+
+          import android.content.BroadcastReceiver;
+          import android.content.Context;
+          import android.content.Intent;
+
+          public class BootReceiver extends BroadcastReceiver {
+              @Override
+              public void onReceive(Context c, Intent in) { Scheduler.scheduleNext(c); }
+          }
+          EOF
+
+          cat > $P/app/src/main/java/ir/hashem/taqvim/Loc.java <<'EOF'
+          package ir.hashem.taqvim;
+
+          import android.content.Context;
+          import android.location.Location;
+          import android.location.LocationListener;
+          import android.location.LocationManager;
+          import android.os.Bundle;
+          import android.os.Handler;
+          import android.os.Looper;
+
+          public class Loc {
+              @SuppressWarnings("MissingPermission")
+              static void get(final MainActivity act, final String cb) {
+                  final LocationManager lm = (LocationManager) act.getSystemService(Context.LOCATION_SERVICE);
+                  if (lm == null) { fail(act, cb, "no-service"); return; }
+                  Location best = null;
+                  try {
+                      for (String pr : lm.getProviders(true)) {
+                          Location l = lm.getLastKnownLocation(pr);
+                          if (l != null && (best == null || l.getTime() > best.getTime())) best = l;
+                      }
+                  } catch (Exception e) { }
+                  if (best != null && System.currentTimeMillis() - best.getTime() < 6L * 3600000L) { ok(act, cb, best); return; }
+                  final boolean[] done = {false};
+                  final Location fallback = best;
+                  final LocationListener ls = new LocationListener() {
+                      public void onLocationChanged(Location l) {
+                          if (done[0]) return; done[0] = true;
+                          try { lm.removeUpdates(this); } catch (Exception e) { }
+                          ok(act, cb, l);
+                      }
+                      public void onStatusChanged(String p, int s, Bundle b) { }
+                      public void onProviderEnabled(String p) { }
+                      public void onProviderDisabled(String p) { }
+                  };
+                  try {
+                      if (lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER))
+                          lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, ls, Looper.getMainLooper());
+                      if (lm.isProviderEnabled(LocationManager.GPS_PROVIDER))
+                          lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ls, Looper.getMainLooper());
+                  } catch (Exception e) { }
+                  new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                      if (done[0]) return; done[0] = true;
+                      try { lm.removeUpdates(ls); } catch (Exception e) { }
+                      if (fallback != null) ok(act, cb, fallback); else fail(act, cb, "timeout");
+                  }, 25000);
+              }
+
+              static void ok(MainActivity act, String cb, Location l) {
+                  act.js("window.__nativeCb&&window.__nativeCb(" + AppBridge.q(cb) + ",true," + AppBridge.q(l.getLatitude() + "," + l.getLongitude()) + ")");
+              }
+
+              static void fail(MainActivity act, String cb, String why) {
+                  act.js("window.__nativeCb&&window.__nativeCb(" + AppBridge.q(cb) + ",false," + AppBridge.q(why) + ")");
+              }
+          }
           EOF
 
           cat > $P/app/src/main/java/ir/hashem/taqvim/MainActivity.java <<'EOF'
           package ir.hashem.taqvim;
 
+          import android.Manifest;
           import android.app.Activity;
           import android.content.Intent;
+          import android.content.pm.PackageManager;
           import android.graphics.Color;
           import android.net.Uri;
+          import android.os.Build;
           import android.os.Bundle;
+          import android.speech.tts.TextToSpeech;
+          import java.util.Locale;
+          import android.hardware.Sensor;
+          import android.hardware.SensorEvent;
+          import android.hardware.SensorEventListener;
+          import android.hardware.SensorManager;
+          import android.view.Surface;
           import android.view.WindowManager;
           import android.webkit.ValueCallback;
           import android.webkit.WebChromeClient;
@@ -124,16 +470,85 @@ jobs:
           import android.webkit.WebView;
           import android.webkit.WebViewClient;
 
-          public class MainActivity extends Activity {
-              private WebView web;
+          public class MainActivity extends Activity implements SensorEventListener {
+              TextToSpeech tts; boolean ttsReady = false; String[] pendingSpeak = null;
+              void speak(final String text, final String lang) {
+                  runOnUiThread(() -> {
+                      if (tts == null) {
+                          pendingSpeak = new String[]{text, lang};
+                          tts = new TextToSpeech(this, st -> { ttsReady = st == TextToSpeech.SUCCESS; if (ttsReady && pendingSpeak != null) { say(pendingSpeak[0], pendingSpeak[1]); pendingSpeak = null; } });
+                      } else if (ttsReady) say(text, lang);
+                  });
+              }
+              void say(String text, String lang) {
+                  Locale l = "ar".equals(lang) ? new Locale("ar") : Locale.US;
+                  int r = tts.setLanguage(l);
+                  if (r < 0) js("window.toast&&toast('صدای این زبان روی گوشی نصب نیست')");
+                  tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, "u1");
+              }
+              @Override
+              protected void onDestroy() { if (tts != null) tts.shutdown(); super.onDestroy(); }
+              SensorManager sm; boolean compassOn = false; long lastSend = 0;
+              final float[] rot = new float[9], ori = new float[3], grav = new float[3], mag = new float[3];
+              boolean hasG = false, hasM = false;
+
+              void startCompass() {
+                  runOnUiThread(() -> {
+                      if (sm == null) sm = (SensorManager) getSystemService(SENSOR_SERVICE);
+                      if (sm == null) { js("window.__heading&&window.__heading(-1,0)"); return; }
+                      sm.unregisterListener(this);
+                      Sensor rv = sm.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
+                      boolean ok;
+                      if (rv != null) ok = sm.registerListener(this, rv, SensorManager.SENSOR_DELAY_GAME);
+                      else {
+                          Sensor a = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), m = sm.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+                          ok = a != null && m != null && sm.registerListener(this, a, SensorManager.SENSOR_DELAY_GAME) && sm.registerListener(this, m, SensorManager.SENSOR_DELAY_GAME);
+                      }
+                      compassOn = ok;
+                      if (!ok) js("window.__heading&&window.__heading(-1,0)");
+                  });
+              }
+              void stopCompass() { runOnUiThread(() -> { compassOn = false; if (sm != null) sm.unregisterListener(this); }); }
+
+              @Override
+              public void onSensorChanged(SensorEvent e) {
+                  int t = e.sensor.getType();
+                  if (t == Sensor.TYPE_ROTATION_VECTOR) SensorManager.getRotationMatrixFromVector(rot, e.values);
+                  else {
+                      if (t == Sensor.TYPE_ACCELEROMETER) { System.arraycopy(e.values, 0, grav, 0, 3); hasG = true; }
+                      if (t == Sensor.TYPE_MAGNETIC_FIELD) { System.arraycopy(e.values, 0, mag, 0, 3); hasM = true; }
+                      if (!hasG || !hasM || !SensorManager.getRotationMatrix(rot, null, grav, mag)) return;
+                  }
+                  long now = System.currentTimeMillis();
+                  if (now - lastSend < 60) return;
+                  lastSend = now;
+                  SensorManager.getOrientation(rot, ori);
+                  double az = Math.toDegrees(ori[0]);
+                  int r = getWindowManager().getDefaultDisplay().getRotation();
+                  az += r == Surface.ROTATION_90 ? 90 : r == Surface.ROTATION_180 ? 180 : r == Surface.ROTATION_270 ? 270 : 0;
+                  az = (az % 360 + 360) % 360;
+                  js("window.__heading&&window.__heading(" + String.format(java.util.Locale.US, "%.1f", az) + "," + acc + ")");
+              }
+              int acc = 3;
+              @Override
+              public void onAccuracyChanged(Sensor s, int a) { if (s.getType() == Sensor.TYPE_MAGNETIC_FIELD || s.getType() == Sensor.TYPE_ROTATION_VECTOR) acc = a; }
+
+              @Override
+              protected void onPause() { super.onPause(); if (sm != null) sm.unregisterListener(this); }
+              @Override
+              protected void onResume() { super.onResume(); if (compassOn) startCompass(); js("window.__resume&&window.__resume()"); }
+
+              WebView web;
               private ValueCallback<Uri[]> fileCb;
-              private static final int FILE_REQ = 1;
+              static final int FILE_REQ = 1;
+              static final int PERM_LOC = 2;
+              static final int PERM_NOTIF = 3;
+              String pendingLocCb = null;
 
               @Override
               protected void onCreate(Bundle state) {
                   super.onCreate(state);
                   getWindow().setStatusBarColor(Color.parseColor("#0b5b47"));
-                  getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
                   web = new WebView(this);
                   setContentView(web);
                   WebSettings s = web.getSettings();
@@ -142,10 +557,12 @@ jobs:
                   s.setDatabaseEnabled(true);
                   s.setAllowFileAccess(true);
                   s.setMediaPlaybackRequiresUserGesture(false);
+                  web.addJavascriptInterface(new AppBridge(this), "AppBridge");
                   web.setWebViewClient(new WebViewClient() {
                       @Override
                       public boolean shouldOverrideUrlLoading(WebView v, WebResourceRequest r) {
                           Uri u = r.getUrl();
+                          if (!r.isForMainFrame()) return false;
                           if ("file".equals(u.getScheme())) return false;
                           try { startActivity(new Intent(Intent.ACTION_VIEW, u)); } catch (Exception e) { }
                           return true;
@@ -163,6 +580,46 @@ jobs:
                   });
                   if (state != null) web.restoreState(state);
                   else web.loadUrl("file:///android_asset/index.html");
+                  Scheduler.scheduleNext(this);
+              }
+
+              void setKeepScreenOn(boolean on) {
+                  runOnUiThread(() -> {
+                      if (on) getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                      else getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                  });
+              }
+
+              void js(final String code) {
+                  runOnUiThread(() -> { try { web.evaluateJavascript(code, null); } catch (Exception e) { } });
+              }
+
+              void askLocation(String cb) {
+                  if (Build.VERSION.SDK_INT >= 23 && checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                          && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                      pendingLocCb = cb;
+                      requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PERM_LOC);
+                  } else {
+                      Loc.get(this, cb);
+                  }
+              }
+
+              void askNotifications() {
+                  if (Build.VERSION.SDK_INT >= 33 && checkSelfPermission("android.permission.POST_NOTIFICATIONS") != PackageManager.PERMISSION_GRANTED) {
+                      requestPermissions(new String[]{"android.permission.POST_NOTIFICATIONS"}, PERM_NOTIF);
+                  }
+              }
+
+              @Override
+              public void onRequestPermissionsResult(int req, String[] perms, int[] res) {
+                  if (req == PERM_LOC && pendingLocCb != null) {
+                      String cb = pendingLocCb; pendingLocCb = null;
+                      boolean ok = false;
+                      for (int r : res) if (r == PackageManager.PERMISSION_GRANTED) ok = true;
+                      if (ok) Loc.get(this, cb);
+                      else js("window.__nativeCb&&window.__nativeCb(" + AppBridge.q(cb) + ",false,'denied')");
+                  }
+                  if (req == PERM_NOTIF) Scheduler.scheduleNext(this);
               }
 
               @Override
@@ -184,6 +641,112 @@ jobs:
               @Override
               public void onBackPressed() {
                   if (web.canGoBack()) web.goBack(); else super.onBackPressed();
+              }
+          }
+          EOF
+
+          cat > $P/app/src/main/java/ir/hashem/taqvim/Scheduler.java <<'EOF'
+          package ir.hashem.taqvim;
+
+          import android.app.AlarmManager;
+          import android.app.Notification;
+          import android.app.NotificationChannel;
+          import android.app.NotificationManager;
+          import android.app.PendingIntent;
+          import android.content.Context;
+          import android.content.Intent;
+          import android.content.SharedPreferences;
+          import android.os.Build;
+
+          import org.json.JSONArray;
+          import org.json.JSONObject;
+
+          public class Scheduler {
+              static final String PREFS = "taqvim";
+              static final String CH_STATUS = "status";
+              static final String CH_ADHAN = "adhan2";
+              static final int STATUS_ID = 1001;
+              static final int ADHAN_ID = 1002;
+
+              static int piFlags() {
+                  return PendingIntent.FLAG_UPDATE_CURRENT | (Build.VERSION.SDK_INT >= 23 ? PendingIntent.FLAG_IMMUTABLE : 0);
+              }
+
+              static void channels(Context c) {
+                  if (Build.VERSION.SDK_INT < 26) return;
+                  NotificationManager nm = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
+                  if (nm == null) return;
+                  NotificationChannel st = new NotificationChannel(CH_STATUS, "اوقات شرعی (نوار وضعیت)", NotificationManager.IMPORTANCE_LOW);
+                  st.setShowBadge(false);
+                  nm.createNotificationChannel(st);
+                  NotificationChannel ad = new NotificationChannel(CH_ADHAN, "اذان", NotificationManager.IMPORTANCE_HIGH);
+                  ad.setSound(null, null);
+                  nm.createNotificationChannel(ad);
+              }
+
+              static Notification.Builder builder(Context c, String ch) {
+                  Notification.Builder b = Build.VERSION.SDK_INT >= 26 ? new Notification.Builder(c, ch) : new Notification.Builder(c);
+                  return b.setSmallIcon(R.drawable.ic_stat);
+              }
+
+              static PendingIntent openApp(Context c) {
+                  Intent i = new Intent(c, MainActivity.class);
+                  i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                  return PendingIntent.getActivity(c, 0, i, piFlags());
+              }
+
+              static void scheduleNext(Context c) {
+                  channels(c);
+                  SharedPreferences p = c.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
+                  boolean adhanOn = p.getBoolean("adhanOn", false);
+                  boolean statusOn = p.getBoolean("statusOn", false);
+                  JSONObject next = null;
+                  long now = System.currentTimeMillis();
+                  try {
+                      JSONArray a = new JSONArray(p.getString("alarms", "[]"));
+                      for (int i = 0; i < a.length(); i++) {
+                          JSONObject o = a.getJSONObject(i);
+                          if (o.getLong("t") > now + 1000) { next = o; break; }
+                      }
+                  } catch (Exception e) { }
+
+                  AlarmManager am = (AlarmManager) c.getSystemService(Context.ALARM_SERVICE);
+                  Intent it = new Intent(c, AlarmReceiver.class);
+                  if (next != null) {
+                      it.putExtra("t", next.optLong("t"));
+                      it.putExtra("n", next.optString("n"));
+                      it.putExtra("u", next.optString("u"));
+                      it.putExtra("a", next.optBoolean("a"));
+                  }
+                  PendingIntent pi = PendingIntent.getBroadcast(c, 7, it, piFlags());
+                  if (am != null) {
+                      am.cancel(pi);
+                      if (next != null && (adhanOn || statusOn)) {
+                          long t = next.optLong("t");
+                          try {
+                              boolean exact = Build.VERSION.SDK_INT < 31 || am.canScheduleExactAlarms();
+                              if (exact) am.setAlarmClock(new AlarmManager.AlarmClockInfo(t, openApp(c)), pi);
+                              else if (Build.VERSION.SDK_INT >= 23) am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, t, pi);
+                              else am.set(AlarmManager.RTC_WAKEUP, t, pi);
+                          } catch (Exception e) {
+                              try { am.set(AlarmManager.RTC_WAKEUP, t, pi); } catch (Exception e2) { }
+                          }
+                      }
+                  }
+                  NotificationManager nm = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
+                  if (nm == null) return;
+                  if (statusOn && next != null) {
+                      Notification.Builder b = builder(c, CH_STATUS)
+                              .setContentTitle(next.optString("st"))
+                              .setContentText(next.optString("sd"))
+                              .setOngoing(true)
+                              .setShowWhen(false)
+                              .setContentIntent(openApp(c));
+                      if (Build.VERSION.SDK_INT < 26) b.setPriority(Notification.PRIORITY_LOW);
+                      try { nm.notify(STATUS_ID, b.build()); } catch (Exception e) { }
+                  } else {
+                      nm.cancel(STATUS_ID);
+                  }
               }
           }
           EOF
@@ -220,8 +783,8 @@ jobs:
         continue-on-error: true
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v1.${{ github.run_number }}
-          name: "تقویم اهل سنت - نسخه ${{ github.run_number }}"
+          tag_name: v3.${{ github.run_number }}
+          name: "تقویم و اعمال روزانه اهل‌سنت - نسخه ${{ github.run_number }}"
           files: |
             TaqvimAhlSunnat.apk
             TaqvimAhlSunnat.aab
